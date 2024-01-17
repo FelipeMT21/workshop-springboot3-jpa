@@ -1,7 +1,11 @@
 package com.educandoweb.course.entities;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,19 +15,27 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+// Indica que a classe é uma Entidade JPA
 @Entity
+// Nomeia o nome da tabela de Order para tb_order
 @Table(name = "tb_order")
-public class Order {
+public class Order implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
+	// Indentifica quem vai ser o ID
 	@Id
+	// Gera um id automático
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Instant moment;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private User client;
-	
+
 	public Order() {
 	}
 
@@ -60,7 +72,7 @@ public class Order {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(client, id, moment);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -72,8 +84,7 @@ public class Order {
 		if (getClass() != obj.getClass())
 			return false;
 		Order other = (Order) obj;
-		return Objects.equals(client, other.client) && Objects.equals(id, other.id)
-				&& Objects.equals(moment, other.moment);
+		return Objects.equals(id, other.id);
 	}
-	
+
 }
