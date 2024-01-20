@@ -20,7 +20,7 @@ import jakarta.persistence.Table;
 // Nomeia o nome da tabela de Order para tb_order
 @Table(name = "tb_order")
 public class Order implements Serializable {
-
+	
 	private static final long serialVersionUID = 1L;
 
 	// Indentifica quem vai ser o ID
