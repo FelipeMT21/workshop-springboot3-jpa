@@ -1,5 +1,5 @@
 # Workshop Spring Boot 3 + JPA 
-[![NPM](https://img.shields.io/npm/l/react)]([https://github.com/devsuperior/sds1-wmazoni/blob/master/LICENSE](https://github.com/FelipeMT21/workshop-springboot3-jpa/blob/main/LICENSE)) 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/FelipeMT21/workshop-springboot3-jpa/blob/main/LICENSE) 
 
 # Sobre o projeto
 
